@@ -2,7 +2,9 @@ require('dotenv').config()  // dotenv is a package that loads environmet variabl
 
 const mongoose = require('mongoose')
 const express = require('express')  // express is a node js framework used for making APIs
+const cors = require('cors')
 const workoutRoutes = require('./routes/workoutRoutes')
+
 const app = express()   // start the express app
 
 const port = process.env.PORT || 4001
@@ -11,14 +13,17 @@ const port = process.env.PORT || 4001
 
 // middleware to get access to data sent in the request object, simply using request.body
 app.use(express.json())
-// basic  middleware
+
+app.use(cors())
+
+// basic custom middleware
 app.use((req, res, next) => {
     console.log(req.path, req.method)
     next()  // necessary so that the next  middleware is called
 })
 
 // routes
-app.use('/api', workoutRoutes)
+app.use('/api/v1/workouts', workoutRoutes)
 
 // connect to the database
 // oinly listen for requests after the connection with the database has been established
