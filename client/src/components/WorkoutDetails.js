@@ -25,7 +25,7 @@ const WorkoutDetails = ({ workout }) => {
             <p>{fomratDistanceToNow(new Date(workout.createdAt), { addSuffix: true})}</p>
             <span onClick={handleDelete}>delete</span>
         </div>
-    )
+    ) 
 }
 
 export default WorkoutDetails
