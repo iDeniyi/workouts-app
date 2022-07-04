@@ -159,4 +159,5 @@ run_time_log.log
 
 *.xlsx
 
-.env
+*.env
+server/.env
