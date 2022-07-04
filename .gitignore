@@ -160,3 +160,4 @@ run_time_log.log
 *.xlsx
 
 *.env
+server/.env
